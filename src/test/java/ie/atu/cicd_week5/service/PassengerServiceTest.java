@@ -30,6 +30,6 @@ class PassengerServiceTest {
 
         Optional<Passenger> found = service.findById("P1");
         assertTrue(found.isPresent());
-        assertEquals("Alice", found.get().getName());
+        assertEquals("Daragh", found.get().getName());
     }
 }
