@@ -31,5 +31,21 @@ public class PassengerService {
         store.add(p);
         return p;
     }
+    // update existing passenger’s name/email
+    public Optional<Passenger> update(String id, Passenger updated) {
+        for (Passenger p : store) {
+            if (p.getPassengerId().equals(id)) {
+                p.setName(updated.getName());
+                p.setEmail(updated.getEmail());
+                return Optional.of(p);
+            }
+        }
+        return Optional.empty();
+    }
+
+    // delete passenger by id
+    public boolean deleteById(String id) {
+        return store.removeIf(p -> p.getPassengerId().equals(id));
+    }
 }
 
