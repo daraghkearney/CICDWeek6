@@ -25,4 +25,10 @@ public class GlobalExceptionHandling {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorList);
     }
+
+    @ExceptionHandler(DuplicateException.class)
+    public ResponseEntity<DuplicateException> showDupError(DuplicateException de)
+    {
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(de);
+    }
 }
